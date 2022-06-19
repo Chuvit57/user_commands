@@ -40,21 +40,46 @@ def list_all_documents():
   for i in range(0, len(documents)):
     print(f'{documents[i]["type"] } "{documents[i]["number"]}" "{documents[i]["name"]}"' )
 
-
+def document_add():
+  type_doc = input("Введите тип документа: ")
+  num_doc = input("Введите номер документа: ")
+  name_person = input("Введите свое имя и фамилию: ")
+  new_dict = {f'"type": "{type_doc}", "number": "{num_doc}", "name": "{name_person}"'}
+  documents.append(new_dict)
+  print("Ваш документ успешно добавлен!!!")
+  print("----------------------------------------")
+  print(documents)
       
-list_menu = ['p', 's', 'l', 'a']
-letter_selection = input('Выберите нужную вам команду и введите букву : ')
-if list_menu.count(letter_selection) != 1:
-    print("Этой буквы нет в меню. Попробуйте снова!")
-else:
-  if letter_selection == 'p':
-    search_name()
-  elif letter_selection == 's':
-    search_shelf()
-  elif letter_selection == 'l':
-    print()
-    print(" Список всех документов ".center(30, '^') )
-    list_all_documents()
+# list_menu = ['p', 's', 'l', 'a']
+# letter_selection = input('Выберите нужную вам команду и введите букву : ')
+# if list_menu.count(letter_selection) != 1:
+#     print("Этой буквы нет в меню. Попробуйте снова! ")
+# else:
+#   if letter_selection == 'p':
+#     search_name()
+#   elif letter_selection == 's':
+#     search_shelf()
+#   elif letter_selection == 'l':
+#     print()
+#     print(" Список всех документов ".center(30, '^') )
+#     list_all_documents()
+#   elif letter_selection == 'a':
+#     print()
+#     print(" Добавить новый документ в каталог и в перечень полок ".center(30, '^') )
+#     print()
+#     document_add()
+#     num_shelf = input("Введите номер полки(от 1 до 3(включительно)): ")
+#     if num_shelf == 1:
+
+
+# print(directories)
+for key, volue in directories.items():
+  
+
+     
+
+     
+    
     
 
 
