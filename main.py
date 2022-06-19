@@ -36,8 +36,12 @@ def search_shelf():
     if (num_doc in value) == True:
       print(f"Номер полки: {key}")
       
+def list_all_documents():
+  for i in range(0, len(documents)):
+    print(f'{documents[i]["type"] } "{documents[i]["number"]}" "{documents[i]["name"]}"' )
 
 
+      
 list_menu = ['p', 's', 'l', 'a']
 letter_selection = input('Выберите нужную вам команду и введите букву : ')
 if list_menu.count(letter_selection) != 1:
@@ -47,7 +51,13 @@ else:
     search_name()
   elif letter_selection == 's':
     search_shelf()
-
-
-
+  elif letter_selection == 'l':
+    print()
+    print(" Список всех документов ".center(30, '^') )
+    list_all_documents()
     
+
+
+
+
+
