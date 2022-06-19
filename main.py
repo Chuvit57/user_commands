@@ -24,11 +24,17 @@ print("----------------------------------------")
 def search_name():
   num_doc = input("Введите номер документа: ")
   for i in range(0, len(documents)):
-    n = (num_doc in documents[i].values())
-    if n == True:
+    if (num_doc in documents[i].values()) == True:
       value_list = list(documents[i].values())
-      print(f"Имя и Фамилия владельца: {value_list[2]}")
+      print(f"И.Ф владельца: {value_list[2]}")
       break
+
+
+def search_shelf():
+  num_doc = input("Введите номер документа: ")
+  for key, value in directories.items():
+    if (num_doc in value) == True:
+      print(f"Номер полки: {key}")
       
 
 
@@ -39,17 +45,9 @@ if list_menu.count(letter_selection) != 1:
 else:
   if letter_selection == 'p':
     search_name()
-    print("Ok")
-
   elif letter_selection == 's':
-    print("Number shelf")
+    search_shelf()
 
 
-  
-  
+
     
-
-
-
-
-
