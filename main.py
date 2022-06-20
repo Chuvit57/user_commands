@@ -1,5 +1,5 @@
 # Task-1
-print(" пользовательские команды ".upper().center(50, '='))
+
 documents = [
         {"type": "passport", "number": "2207 876234", "name": "Василий Гупкин"},
         {"type": "invoice", "number": "11-2", "name": "Геннадий Покемонов"},
@@ -11,15 +11,6 @@ directories = {
         '2': ['10006'],
         '3': []
       }
-
-print()
-print( " Меню команд ввода символов ".center(30, '#'))
-print("----------------------------------------")
-print("p - По номеру документа найти имя хозяина")
-print("s - Выводит номер полки на которой находится документ")
-print("l - Выведет список всех документов")
-print("a - Добавит новый документ в каталог и в перечень полок")
-print("----------------------------------------")
 
 def search_name():
   num_doc = input("Введите номер документа: ")
@@ -49,40 +40,52 @@ def document_add():
   print("Ваш документ успешно добавлен!!!")
   print("----------------------------------------")
   print(documents)
-      
-# list_menu = ['p', 's', 'l', 'a']
-# letter_selection = input('Выберите нужную вам команду и введите букву : ')
-# if list_menu.count(letter_selection) != 1:
-#     print("Этой буквы нет в меню. Попробуйте снова! ")
-# else:
-#   if letter_selection == 'p':
-#     search_name()
-#   elif letter_selection == 's':
-#     search_shelf()
-#   elif letter_selection == 'l':
-#     print()
-#     print(" Список всех документов ".center(30, '^') )
-#     list_all_documents()
-#   elif letter_selection == 'a':
-#     print()
-#     print(" Добавить новый документ в каталог и в перечень полок ".center(30, '^') )
-#     print()
-#     document_add()
-#     num_shelf = input("Введите номер полки(от 1 до 3(включительно)): ")
-#     if num_shelf == 1:
-
-
-# print(directories)
-for key, volue in directories.items():
+  num_shelf = input("Введите номер полки(от 1 до 3(включительно)): ")
+  directories[f'{num_shelf}'].append(num_doc)
+  for key, value in directories.items():
+      print(key, '->', value)
   
 
-     
 
-     
+
+# def doc_in_shelf(q):
+#   num_shelf = input("Введите номер полки(от 1 до 3(включительно)): ")
+#   directories[f'{num_shelf}'].append(q)
+#   for key, value in directories.items():
+#       print(key, '->', value)
+
+
+def execute_menu():
+  print(" пользовательские команды ".upper().center(50, '='))
+  print()
+  print( " Меню команд ввода символов ".center(30, '#'))
+  print("----------------------------------------")
+  print("p - По номеру документа найти имя хозяина")
+  print("s - Выводит номер полки на которой находится документ")
+  print("l - Выведет список всех документов")
+  print("a - Добавит новый документ в каталог и в перечень полок")
+  print("----------------------------------------")
+  list_menu = ['p', 's', 'l', 'a']
+  letter_selection = input('Выберите нужную вам команду и введите букву : ')
+  if list_menu.count(letter_selection) != 1:
+      print("Этой буквы нет в меню. Попробуйте снова! ")
+  else:
+    if letter_selection == 'p':
+      search_name()
+    elif letter_selection == 's':
+      search_shelf()
+    elif letter_selection == 'l':
+      print()
+      print(" Список всех документов ".center(30, '^') )
+      list_all_documents()
+    elif letter_selection == 'a':
+      print()
+      print(" Добавить новый документ в каталог и в перечень полок ".center(30, '^') )
+      print()
+      document_add()
     
-    
 
 
 
-
-
+if __name__ == '__main__':
+  execute_menu()
