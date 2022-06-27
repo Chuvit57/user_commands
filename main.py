@@ -15,10 +15,9 @@ directories = {
 def search_name():
   num_doc = input("Введите номер документа: ")
   for i in range(0, len(documents)):
-    if (num_doc in documents[i].values()) == True:
+    if num_doc in documents[i].values():
       value_list = list(documents[i].values())
       print(f"И.Ф владельца: {value_list[2]}")
-      break
 
 
 def search_shelf():
@@ -40,19 +39,16 @@ def document_add():
   print("Ваш документ успешно добавлен!!!")
   print("----------------------------------------")
   print(documents)
-  num_shelf = input("Введите номер полки(от 1 до 3(включительно)): ")
-  directories[f'{num_shelf}'].append(num_doc)
+  num_shelf = int(input("Введите номер полки(от 1 до 3(включительно)): "))
+  while num_shelf > 3:
+      print("Вы ввели неправильный номер полки! Попробуйте еще раз")
+      num_shelf = int(input("Введите номер полки(от 1 до 3(включительно)): "))
+  directories[f'{str(num_shelf)}'].append(num_doc)
+  
   for key, value in directories.items():
-      print(key, '->', value)
+        print(key, '->', value)
   
 
-
-
-# def doc_in_shelf(q):
-#   num_shelf = input("Введите номер полки(от 1 до 3(включительно)): ")
-#   directories[f'{num_shelf}'].append(q)
-#   for key, value in directories.items():
-#       print(key, '->', value)
 
 
 def execute_menu():
@@ -83,8 +79,9 @@ def execute_menu():
       print(" Добавить новый документ в каталог и в перечень полок ".center(30, '^') )
       print()
       document_add()
-    
-
+  consent = input("Продолжить нажмите y/n :")
+  if consent == "y":
+      execute_menu()
 
 
 if __name__ == '__main__':
