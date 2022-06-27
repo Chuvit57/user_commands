@@ -21,6 +21,7 @@ print("p - По номеру документа найти имя хозяина
 print("s - Выводит номер полки на которой находится документ")
 print("l - Выведет список всех документов")
 print("a - Добавит новый документ в каталог и в перечень полок")
+print("q - Выйти из программы")
 print("----------------------------------------")
 
 def search_name():
@@ -58,6 +59,7 @@ def document_add():
   
   for key, value in directories.items():
         print(key, '->', value)
+
   
 
 
@@ -65,7 +67,7 @@ def document_add():
 
 def main():
   while True:
-    list_menu = ['p', 's', 'l', 'a']
+    list_menu = ['p', 's', 'l', 'a', 'q']
     letter_selection = input('Выберите нужную вам команду и введите букву : ')
     if list_menu.count(letter_selection) != 1:
         print("Этой буквы нет в меню. Попробуйте снова! ")
@@ -83,6 +85,8 @@ def main():
         print(" Добавить новый документ в каталог и в перечень полок ".center(30, '^') )
         print()
         document_add()
+      elif letter_selection == 'q':
+        break
   
 
 
