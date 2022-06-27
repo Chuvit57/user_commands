@@ -62,38 +62,28 @@ def document_add():
 
 
 
-# def execute_menu():
-  # print(" пользовательские команды ".upper().center(50, '='))
-  # print()
-  # print( " Меню команд ввода символов ".center(30, '#'))
-  # print("----------------------------------------")
-  # print("p - По номеру документа найти имя хозяина")
-  # print("s - Выводит номер полки на которой находится документ")
-  # print("l - Выведет список всех документов")
-  # print("a - Добавит новый документ в каталог и в перечень полок")
-  # print("----------------------------------------")
+
 def main():
-  list_menu = ['p', 's', 'l', 'a']
-  letter_selection = input('Выберите нужную вам команду и введите букву : ')
-  if list_menu.count(letter_selection) != 1:
-      print("Этой буквы нет в меню. Попробуйте снова! ")
-  else:
-    if letter_selection == 'p':
-      search_name()
-    elif letter_selection == 's':
-      search_shelf()
-    elif letter_selection == 'l':
-      print()
-      print(" Список всех документов ".center(30, '^') )
-      list_all_documents()
-    elif letter_selection == 'a':
-      print()
-      print(" Добавить новый документ в каталог и в перечень полок ".center(30, '^') )
-      print()
-      document_add()
-  # consent = input("Продолжить нажмите y/n :")
-  # if consent == "y":
-  #     execute_menu()
+  while True:
+    list_menu = ['p', 's', 'l', 'a']
+    letter_selection = input('Выберите нужную вам команду и введите букву : ')
+    if list_menu.count(letter_selection) != 1:
+        print("Этой буквы нет в меню. Попробуйте снова! ")
+    else:
+      if letter_selection == 'p':
+        search_name()
+      elif letter_selection == 's':
+        search_shelf()
+      elif letter_selection == 'l':
+        print()
+        print(" Список всех документов ".center(30, '^') )
+        list_all_documents()
+      elif letter_selection == 'a':
+        print()
+        print(" Добавить новый документ в каталог и в перечень полок ".center(30, '^') )
+        print()
+        document_add()
+  
 
 
 if __name__ == '__main__':
