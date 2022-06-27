@@ -45,18 +45,21 @@ def list_all_documents():
 def document_add():
   type_doc = input("Введите тип документа: ")
   num_doc = input("Введите номер документа: ")
-  name_person = input("Введите свое имя и фамилию: ")
-  new_dict = {f'"type": "{type_doc}", "number": "{num_doc}", "name": "{name_person}"'}
+  name_person = input("Введите свое Имя и Фамилию: ")
+  new_dict = {}
+  keys = ["type", "number", "name"]
+  values = [type_doc, num_doc, name_person]
+  new_dict =  dict(zip(keys, values))
   documents.append(new_dict)
   print("Ваш документ успешно добавлен!!!")
+  for i in documents:
+      print(i)
   print("----------------------------------------")
-  print(documents)
   num_shelf = int(input("Введите номер полки(от 1 до 3(включительно)): "))
-  while num_shelf > 3:
+  while num_shelf > len(num_shelf):
       print("Вы ввели неправильный номер полки! Попробуйте еще раз")
       num_shelf = int(input("Введите номер полки(от 1 до 3(включительно)): "))
   directories[f'{str(num_shelf)}'].append(num_doc)
-  
   for key, value in directories.items():
         print(key, '->', value)
 
@@ -78,11 +81,10 @@ def main():
         search_shelf()
       elif letter_selection == 'l':
         print()
-        print(" Список всех документов ".center(30, '^') )
+        print(" Список всех документов ".center(50, '^') )
         list_all_documents()
       elif letter_selection == 'a':
-        print()
-        print(" Добавить новый документ в каталог и в перечень полок ".center(30, '^') )
+        print(" Добавить новый документ в каталог и в перечень полок ".center(60, '^') )
         print()
         document_add()
       elif letter_selection == 'q':
